@@ -13,12 +13,12 @@ class ImageGallery extends Component {
       largeImageURL: PropTypes.string,
       user: PropTypes.string,
     })),
-  }
+  };
 
   state = {
     showModal: false,
-    currentLargeImageURL: null,
-    currentUser: null,
+    currentLargeImageURL: '',
+    currentUser: '',
   };
 
   onOpenModal = (id) => {
@@ -37,8 +37,10 @@ class ImageGallery extends Component {
     }));
   };
 
-  onCloseModal = () => {
-    this.setState(({ showModal }) => ({ showModal: !showModal }));
+  onCloseModal = (event) => {
+    if (event.target === event.currentTarget) {
+      this.setState(({ showModal }) => ({ showModal: !showModal }));
+    }
   };
 
 
@@ -46,7 +48,7 @@ class ImageGallery extends Component {
     const { images } = this.props;
     const { showModal, currentLargeImageURL, currentUser } = this.state;
     return (
-      <React.Fragment>
+      <>
         <ul className={s.ImageGallery}>
           {
             images?.map(({ id, webformatURL, user }) =>
@@ -59,7 +61,7 @@ class ImageGallery extends Component {
             <ImageGalleryItem imgURL={currentLargeImageURL} user={currentUser} />
           </Modal>
         }
-      </React.Fragment>
+      </>
     );
   }
 }

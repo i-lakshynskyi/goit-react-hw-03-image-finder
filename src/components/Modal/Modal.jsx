@@ -12,6 +12,7 @@ class Modal extends Component {
     onClose: PropTypes.func,
   }
 
+
   componentDidMount() {
     window.addEventListener("keydown", this.handleKeyDown);
   }

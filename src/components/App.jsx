@@ -83,7 +83,7 @@ class App extends Component {
     console.log(images);
     return (
       <div className={s.App}>
-        <Searchbar onSearch={this.onSearch} />
+        <Searchbar onSubmit={this.onSearch} />
         <ImageGallery images={images} />
         {images?.length > 0 &&
           <Button onLoadMore={this.onLoadMore} />

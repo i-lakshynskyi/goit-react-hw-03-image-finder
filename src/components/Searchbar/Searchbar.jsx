@@ -7,7 +7,7 @@ import s from './searchbar.module.scss';
 class Searchbar extends Component {
 
   static propTypes = {
-    onSearch: PropTypes.func,
+    onSubmit: PropTypes.func,
   }
 
   state = {
@@ -15,18 +15,18 @@ class Searchbar extends Component {
   }
 
   onChangeSearch = (e) => {
-    const inpValue = e.currentTarget.value;
-    this.setState({searchValue: inpValue});
+    const {value} = e.currentTarget;
+    this.setState({searchValue: value});
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.onSearch(this.state.searchValue);
+    this.props.onSubmit(this.state.searchValue);
   };
 
   render() {
     return (
-      <div className={s.Searchbar}>
+      <header className={s.Searchbar}>
         <form className={s.SearchForm} onSubmit={this.onSubmit}>
           <button type='submit' className={s.SearchFormButton} title={"search"}>
             <span className={s.SearchFormButtonLabel}><ImSearch/></span>
@@ -42,7 +42,7 @@ class Searchbar extends Component {
             onChange={this.onChangeSearch}
           />
         </form>
-      </div>
+      </header>
     );
   }
 }
