@@ -15,7 +15,7 @@ const ImageGalleryItem = ({ imgURL, user, onOpenModal }) => {
 ImageGalleryItem.propTypes = {
   imgURL: PropTypes.string.isRequired,
   user: PropTypes.string,
-  onOpenModal: PropTypes.func.isRequired,
+  onOpenModal: PropTypes.func,
 };
 
 export default ImageGalleryItem;

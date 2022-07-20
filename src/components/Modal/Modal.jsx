@@ -12,7 +12,6 @@ class Modal extends Component {
     onClose: PropTypes.func,
   }
 
-
   componentDidMount() {
     window.addEventListener("keydown", this.handleKeyDown);
   }
@@ -23,7 +22,7 @@ class Modal extends Component {
 
   handleKeyDown = (e) => {
     if (e.code === 'Escape'){
-      this.props.onClose();
+      this.props.onClose(e);
     }
   }
 

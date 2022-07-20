@@ -80,7 +80,6 @@ class App extends Component {
 
   render() {
     const { images, loading } = this.state;
-    console.log(images);
     return (
       <div className={s.App}>
         <Searchbar onSubmit={this.onSearch} />

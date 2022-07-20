@@ -38,7 +38,7 @@ class ImageGallery extends Component {
   };
 
   onCloseModal = (event) => {
-    if (event.target === event.currentTarget) {
+    if (event.target === event.currentTarget || event.code === 'Escape') {
       this.setState(({ showModal }) => ({ showModal: !showModal }));
     }
   };
